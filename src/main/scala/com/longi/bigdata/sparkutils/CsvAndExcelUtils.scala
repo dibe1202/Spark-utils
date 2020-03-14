@@ -31,7 +31,7 @@ object CsvAndExcelUtils {
   def readFromExcel(spark: SparkSession, header: Boolean, dataAddress: String, path: String): DataFrame = {
     spark.read.excel(
       useHeader = header, // Required, 是否使用数据源第一行作为表头
-      dataAddress = dataAddress, // 设置数据区域 Optional, default: "A1"
+      dataAddress = dataAddress, // 设置数据区域 Optional, default: "A1", 可以指定工作表"'My Sheet'!B3:C35"
       treatEmptyValuesAsNulls = true, // 是否将空的单元格设置为null, 不设置遇null则报错 Optional, default: true
       inferSchema = false, // 自动推断字段类型 Optional, default: false 不推断字段类型也不自定义字段时，字段均为String
       maxRowsInMemory = 1000 // Optional, default None. If set, uses a streaming reader which can help with big files

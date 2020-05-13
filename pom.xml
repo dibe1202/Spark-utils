@@ -6,7 +6,7 @@
 
     <groupId>com.longi.bigdata</groupId>
     <artifactId>spark-utils</artifactId>
-    <version>1.2-RELEASE</version>
+    <version>1.4-RELEASE</version>
 <!--    <version>1.1-SNAPSHOT</version>-->
 
     <properties>

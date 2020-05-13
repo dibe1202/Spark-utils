@@ -3,11 +3,11 @@ package com.longi.bigdata.sparkutils
 import java.util.Properties
 
 /**
-  * Author: whn
-  * Date: 2020-1-20 14:33
-  * Version: 1.0
-  * Function:  通过自定义的properties名称，获取相应的properties，主要包括测试和生产环境的DBMS信息
-  */
+ * Author: whn
+ * Date: 2020-1-20 14:33
+ * Version: 1.0
+ * Function:  通过自定义的properties名称，获取相应的properties，主要包括测试和生产环境的DBMS信息
+ */
 object PropertiesUtils {
   def loadProperties(proName: String): Properties = {
     val properties = new Properties()
@@ -59,6 +59,11 @@ object PropertiesUtils {
       case "hw.au" =>
         returnProp.setProperty("ak", properties.getProperty("hw.au.ak"))
         returnProp.setProperty("sk", properties.getProperty("hw.au.sk"))
+      case "yc.zk.ora" =>
+        returnProp.setProperty("driver", properties.getProperty("yc.zk.ora.driver"))
+        returnProp.setProperty("url", properties.getProperty("yc.zk.ora.url"))
+        returnProp.setProperty("user", properties.getProperty("yc.zk.ora.user"))
+        returnProp.setProperty("password", properties.getProperty("yc.zk.ora.password"))
     }
     returnProp
   }

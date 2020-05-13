@@ -49,4 +49,8 @@ public class TimeUtils {
         System.out.println(getDateBefore(-1, "2019-12-08"));
     }
 
+
+    public <T> T name(T a ){
+        return null ;
+    }
 }

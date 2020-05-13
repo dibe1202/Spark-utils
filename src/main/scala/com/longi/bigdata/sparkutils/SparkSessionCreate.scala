@@ -10,6 +10,9 @@ import org.apache.spark.sql.SparkSession
  * Function:
  */
 object SparkSessionCreate {
+  def main(args: Array[String]): Unit = {
+    println(this.getClass.getSimpleName)
+  }
   def getSparkSession(conf: SparkConf, runningMode: String, appName: String = this.getClass.getSimpleName): SparkSession = {
     var spark: SparkSession = null
     //    val conf = new SparkConf()
@@ -18,9 +21,15 @@ object SparkSessionCreate {
     //      .set("spark.debug.maxToStringFields", "1000")
     //      .set("spark.driver.maxResultSize", "2g")
     //      .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+    val name = if (appName.contains(".")) {
+      val nameArr = appName.split(".")
+      val nameSize = nameArr.length
+      nameArr(nameSize - 1)
+    } else appName
+
     if (spark == null) {
       spark = SparkSession.builder()
-        .appName(appName)
+        .appName(name)
         .master(runningMode)
         .config(conf)
         .enableHiveSupport()

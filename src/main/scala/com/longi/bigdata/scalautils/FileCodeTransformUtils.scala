@@ -27,6 +27,6 @@ object FileCodeTransformUtils extends App {
     val fileCodeTransformed = new File(filePath) // 基于源文件转码，目标文件地址不变
     val content = FileUtils.readFileToString(fileCodeTransformed, sourceCode)
     FileUtils.write(fileCodeTransformed, content, targetCode)
-    
+
   }
 }
